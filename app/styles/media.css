@@ -1,0 +1,586 @@
+/*Mobile portrait*/
+
+@media (max-width: 480px) {
+    .navbar.navbar-inverse.navbar-static-top.navbar-inverse-custom {
+        height: auto;
+    }
+    .navbar.navbar-inverse.navbar-static-top.navbar-inverse-custom .navbar-collapse {
+        background: #F2F1F1;
+    }
+    .myLogo img {
+        height: auto;
+        width: 72%;
+        margin-top: -9px;
+    }
+    .container .page-margin {
+        margin-top: 8%;
+    }
+    .panel.panel-custom {
+        margin-top: 21%;
+    }
+    .panel.panel-custom .panel-rpassword h3,
+    .panel.panel-custom .dashboard-posts h3 {
+        font-size: 18px;
+    }
+    .panel.panel-custom .panel-body form input {
+        font-size: 13px;
+        padding-right: 29px;
+    }
+    .panel.panel-custom .show-text {
+        bottom: 55px;
+        font-size: 9px;
+        margin-left: 81%;
+        position: relative;
+    }
+    .panel.panel-custom .error-message {
+        font-size: 11px;
+    }
+    .panel.panel-custom .panel-body p {
+        font-size: 13px;
+        padding: 18px 0;
+    }
+
+    .footer-pad-top > ul {
+        margin-left: -1.5%;
+        text-align: left;
+    }
+
+    .panel.panel-custom .show-password {
+        margin-left: 77%;
+    }
+
+    /*Reset Password Successful page*/
+
+    .panel.panel-custom .successful-page > p {
+        font-size: 17px;
+    }
+    .panel.panel-custom .successful-page form {
+        padding: 28px 51px 74px;
+    }
+    /*manage_volunteers page*/
+
+    .manage-volunteers {
+        margin-top: 30%;
+    }
+    /*my_profile page*/
+
+    .container .myProfile {
+        margin: 27% 0 25%;
+    }
+    .myProfile .image {
+        margin-top: 49px;
+        padding-left: 16%;
+    }
+    .container .myProfile .profile-pic {
+        height: 85px;
+        width: 85px;
+    }
+
+    .container .myProfile .small-profile-pic {
+        height: 85px;
+        width: 85px;
+    }
+
+    .container .myProfile .info form label {
+        margin-top: 10%;
+    }
+    .container .outer .info form label {
+        margin-top: 8%;
+    }
+    .myProfile .info button {
+        margin-top: 3%;
+    }
+    .myProfile .save {
+        margin-left: 73%;
+    }
+    .myProfile .outer form .btn-danger.btn-danger-custom {
+        background: #c9302c url("../images/icon-invite-white.png") no-repeat scroll 19px 9px;
+        font-size: 16px;
+        margin: 10% 0;
+        padding: 9px 26px 9px 54px;
+    }
+    .myProfile .outer .info .form-group {
+        padding-bottom: 16%;
+    }
+    .myProfile .outer .info textarea {
+        margin-top: 9%;
+    }
+
+    .invited_name .c-invite-sug a img {
+        padding-top: 36%;
+    }
+
+    .invited_name .c-invite-sug p {
+        padding-top: 12.5%;
+    }
+
+    .campaign-coordinator .invite_coordinator .refresh-image {
+        padding-top: 4%;
+    }
+
+    /*Manage Volunteers*/
+
+    .container .manage-volunteers {
+        margin-top: 30%;
+    }
+    /*Create_Campaign */
+
+    .create-campaign {
+        margin: 27% 0 35% 0 !important;
+    }
+    .create-campaign .container .new-post h4 {
+        padding: 8% 4% 8% 4%;
+    }
+    .create-campaign .new-post form .form-group label {
+        margin-top: 3%;
+    }
+    .create-campaign .new-post .form-horizontal .form-group label {
+        padding-top: 0;
+        text-align: left;
+    }
+    .create-campaign .new-post form .form-group input {
+        font-size: 14px;
+    }
+    .create-campaign .new-post form .new-post-button .btn-danger.btn-danger-custom {
+        font-size: 15px;
+        padding: 6% 28%;
+    }
+
+    .create-campaign .new-post input {
+      padding-left: 6%;
+  }
+  /*Dashboard New Post Page*/
+
+  .dashboard-posts .campaign-post-title img {
+    padding-top: 9%;
+}
+
+.container .dashboard-page-margin {
+    margin: 25% 0;
+}
+.type-top,
+.campaign-title {
+    padding-top: 7%;
+}
+.qty-type {
+    margin-top: 5%;
+}
+.new-post-top {
+    margin-top: 8%;
+}
+.new-post-top > .row {
+    padding-top: 5%;
+}
+.published-post .published-post-details h4 {
+    margin-left: 0;
+}
+/*Privacy Policy Page Styles*/
+
+.container .privacy-policy {
+    margin: 24% 0 6%;
+}
+
+/*Header*/
+.navbar-inverse-custom .navbar-custom li {
+    margin-bottom: 3%;
+    display: block !important;
+}
+
+/*Contact Us*/
+.container .privacy-policy.contact-us {
+    min-height: 520px;
+}
+
+.container .myProfile .info form .row .form-group .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    position: inherit !important;
+}
+
+}
+
+/*Mobile landscape*/
+
+@media (max-width: 480px) and (orientation: landscape) {
+
+    .navbar-inverse-custom .navbar-custom li {
+        margin-left: 4%;
+    }
+
+    .dashboard-posts .campaign-post-title img {
+        padding-top: 9%;
+    }
+
+    .invited_name .c-invite-sug a img {
+        padding-top: 21%;
+    }
+
+    .invited_name .c-invite-sug p {
+        padding-top: 7.5%;
+    }
+    .container .privacy-policy.contact-us {
+        margin: 16% 0 6%;
+    }
+    .container .myProfile .info form .row .form-group .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+        position: inherit !important;
+    }
+}
+/*Mobile landscape*/
+
+@media (min-width: 481px) and (max-width: 599px) {
+    .navbar.navbar-inverse.navbar-static-top.navbar-inverse-custom {
+        height: auto;
+    }
+    .navbar.navbar-inverse.navbar-static-top.navbar-inverse-custom .navbar-collapse {
+        background: #F2F1F1;
+    }
+    .myLogo img {
+        height: auto;
+        width: 72%;
+        margin-top: -9px;
+    }
+
+    .page-margin {
+        margin-top: 0;
+    }
+    .panel.panel-custom {
+        margin-top: 21 %;
+    }
+    .panel-rpassword h3,
+    .dashboard-posts h3 {
+        font-size: 18px;
+    }
+    .panel.panel-custom .show-text {
+        bottom: 55px;
+        font-size: 9px;
+        margin-left: 81%;
+        position: relative;
+    }
+    .panel.panel-custom a.show_signup {
+        font-size: 10px;
+    }
+    .panel.panel-custom .error-message {
+        font-size: 11px;
+    }
+    .panel.panel-custom .panel-body p {
+        font-size: 14px;
+        padding: 18px 0;
+    }
+    .footer-pad-top > ul {
+        margin-left: -43px;
+        text-align: left;
+    }
+    .footer-pad-top > ul {
+        margin-left: -47px;
+        text-align: left;
+    }
+    a.show_signup {
+        margin-top: 5.5%;
+        right: 19%;
+    }
+    .successful-page form {
+        padding: 28px 51px 74px;
+    }
+    /*Reset Password Successful page*/
+
+    .panel.panel-custom .successful-page > p {
+        font-size: 17px;
+    }
+    .panel.panel-custom .successful-page form {
+        padding: 28px 51px 74px;
+    }
+    /*my_profile page*/
+
+    .myProfile .outer .info form label {
+        margin-top: 3%;
+    }
+    .container .myProfile .info form label {
+        margin-top: 10%;
+    }
+    .myProfile .info button {
+        margin-top: 3%;
+    }
+    .myProfile .save {
+        margin-left: 73%;
+    }
+    .myProfile .info a img {
+        padding: 3% 0;
+    }
+    .myProfile .outer form .btn-danger.btn-danger-custom {
+        background: #c9302c url("../images/icon-invite-white.png") no-repeat scroll 19px 9px;
+        font-size: 16px;
+        margin: 10% 0;
+        padding: 9px 26px 9px 54px;
+    }
+    /*Manage Volunteers*/
+
+    .container .manage-volunteers {
+        margin-top: 24%;
+    }
+    /*Create_Campaign */
+
+    .create-campaign {
+        margin: 25% 0 25% 0 !important;
+    }
+    .create-campaign .container .new-post h4 {
+        padding: 8% 4% 8% 4%;
+    }
+    .create-campaign .new-post form .form-group label {
+        margin-top: 1.5%;
+    }
+    .create-campaign .new-post form .form-group input {
+        font-size: 14px;
+    }
+    .create-campaign .new-post form .new-post-button .btn-danger.btn-danger-custom {
+        font-size: 15px;
+    }
+    /*Dashboard New Post Page*/
+
+    .container .dashboard-page-margin {
+        margin: 25% 0;
+    }
+    .type-top,
+    .campaign-title {
+        padding-top: 7%;
+    }
+    .qty-type {
+        margin-top: 5%;
+    }
+    .new-post-top {
+        margin-top: 8%;
+    }
+    .new-post-top > .row {
+        padding-top: 5%;
+    }
+    /*Privacy Policy Page Styles*/
+
+    .container .privacy-policy {
+        margin: 24% 0 6%;
+    }
+    .container .myProfile .info form .row .form-group .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+        position: inherit !important;
+    }
+}
+
+/*Small tablet portrait*/
+
+@media (min-width: 600px) and (max-width: 767px) {
+    .navbar.navbar-inverse-custom {
+        height: auto;
+    }
+    .navbar.navbar-inverse.navbar-static-top.navbar-inverse-custom .navbar-collapse {
+        background: #F2F1F1;
+    }
+    .myLogo img {
+        height: auto;
+        width: 72%;
+        margin-top: -9px;
+    }
+
+    .navbar-inverse-custom .navbar-custom li {
+        margin-left: 3%;
+    }
+    .footer-pad-top > ul {
+        margin-left: -1.5%;
+        text-align: left;
+    }
+    /*Manage Volunteers*/
+
+    .container .manage-volunteers {
+        margin-top: 20%;
+    }
+    /*Create_Campaign */
+
+    .create-campaign {
+        margin: 20% 0 20% 0 !important;
+    }
+    .create-campaign .container .new-post h4 {
+        padding: 8% 4% 8% 4%;
+    }
+    .create-campaign .new-post form .form-group label {
+        margin-top: 1.5%;
+    }
+    .create-campaign .new-post form .form-group input {
+        font-size: 14px;
+    }
+    .create-campaign .new-post form .new-post-button .btn-danger.btn-danger-custom {
+        font-size: 15px;
+    }
+    /*Dashboard New Post Page*/
+
+    .container .dashboard-page-margin {
+        min-height: 582px;
+        margin-top: 17%;
+    }
+
+    .dashboard-posts .campaign-post-title img {
+        padding-top: 3%;
+    }
+
+    .dashboard-page-margin .volunteers .numberCircle {
+        padding: 3% 0 0;
+    }
+
+    .type-top,
+    .campaign-title {
+        padding-top: 7%;
+    }
+    .qty-type {
+        margin-top: 3%;
+    }
+    .new-post-top > .row {
+        padding-top: 5%;
+    }
+    .container .myProfile .info form label {
+        margin-top: 10%;
+        margin-left: 1%;
+    }
+    /*Privacy Policy Page Styles*/
+
+    .container .privacy-policy {
+        margin: 24% 0 6%;
+    }
+    /*My Profile*/
+    .container .myProfile {
+        margin: 17% 0;
+    }
+
+    /*Contact Us*/
+    .container .privacy-policy.contact-us {
+        margin: 16% 0 6%;
+        min-height: 550px;
+    }
+    .container .myProfile .info form .row .form-group .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+        position: inherit !important;
+    }
+}   
+
+/*Small tablet landscape*/
+
+@media (min-width: 768px) and (max-width: 959px) {
+
+    .panel.panel-custom .show-password {
+        margin-left: 77%;
+    }
+
+    #page-layout a.show_signup {
+        right: 17%;
+        margin-top: 5.5%;
+    }
+
+    /*My Profile Page*/
+    .container .myProfile .profile-pic {
+        height: 85px;
+        width: 85px;
+    }
+
+    .container .myProfile .small-profile-pic {
+        height: 85px;
+        width: 85px;
+    }
+    .container .myProfile {
+        margin: 21% 0 25%;
+    }
+    .container .myProfile .info form label {
+        margin-top: 10%;
+        margin-left: 1%;
+    }
+    .container .myProfile .info .info-display form label {
+        margin-left: 1%;
+        margin-top: 0;
+    }
+    .container .myProfile .info .info-display form p {
+        margin-left: 1%;
+    }
+    /*Dashboard Page*/
+
+    .container .dashboard-page-margin {
+        margin: 16% 0;
+    }
+
+    .container .volunteers {
+        margin-top: 19%;
+    }
+
+    .published-post .published-post-details h4 {
+        margin-left: 0;
+    }
+
+    /*Privacy*/
+    .container .privacy-policy {
+        margin: 17% 0 6%;
+    }
+
+    /*Contact Us*/
+    .container .privacy-policy.contact-us {
+        min-height: 800px;
+    }
+
+    .container div#navbar3 > ul {
+        margin-top: 5%;
+    }
+
+}
+
+/*Tablet portrait*/
+
+@media (min-width: 768px) and (max-width: 959px) and (orientation: portrait) {
+
+    .page-margin.signin-page {
+        min-height: 830px;
+        margin-bottom: 0;
+    }
+
+    .page-margin.sign-up {
+        min-height: 820px;
+        margin-bottom: 0;
+    }
+
+    /*Dashboard Page*/
+
+    .container .dashboard-page-margin {
+        margin: 16% 0;
+        min-height: 721px;
+    }
+
+    .container .volunteers {
+        margin-top: 19%;
+    }
+
+    /*Privacy*/
+    .container .privacy-policy {
+        margin: 17% 0 6%;
+    }
+}
+
+/*Tablet landscape (1024x768)*/
+
+@media (min-width: 960px) and (max-width: 1199px) {
+    /*Dashboard Page*/
+
+    .container .dashboard-page-margin {
+        margin: 12% 0;
+    }
+
+    .container .volunteers {
+        margin-top: 14%;
+    }
+
+    .published-post .published-post-details h4 {
+        margin-left: 0;
+    }
+
+    /*Privacy*/
+    .container .privacy-policy {
+        margin: 14% 0 6%;
+    }
+
+    /*Contact Us*/
+    .container .privacy-policy.contact-us {
+        min-height: 520px;
+    }
+    .container div#navbar3 > ul {
+        margin-top: 4.5%;
+    }
+
+}
+
+

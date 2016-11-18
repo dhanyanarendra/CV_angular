@@ -1,0 +1,79 @@
+<div class="create-campaign" ng-controller= "CampaignCtrl as campaign">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-3">
+        <div class="new-post">
+          <h4>Create Campaign</h4>
+
+          <center><span class="user-message-campaign" ng-if = "campaign.usercamp && campaign.submitted">User don't have permission to create</span></center>
+
+          <center><span class="user-message-campaign" ng-if = "campaign.campaigncreated && campaign.submitted">You have Campaign already</span></center>
+
+          <form class="form-horizontal" name="MyForm" >
+            <div class="row">
+              <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+              <div class="col-sm-10 col-xs-10">
+                <div class="form-group">
+                  <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3" for="name">Name*<span class="error-message-campaign"></span></label>
+                  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-9">
+                    <input name="campaignname" ng-model="campaign.name" tabindex="1" ng-keyup="campaign.keyPresslogin($event)" type="text" class="form-control" id="Cname">
+                    <span  class="error-message-campaign" ng-if = "!campaign.name.length && campaign.submitted ">Name is required.</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3" for="year">Year*<span class="error-message-campaign"></span></label>
+                  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-9">
+                    <input onkeypress="return (event.keyCode == 46 || event.keyCode == 8 ||( event.charCode >= 48 && event.charCode <= 57));" name="campaignyear" ng-keyup="campaign.keyPresslogin($event)"  tabindex="2" ng-model="campaign.year" class="form-control" id="Cyear">
+                    <span class="error-message-campaign" ng-if = "!campaign.year.length && campaign.submitted ">Year is required.</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3" for="state">State*<span class="error-message-campaign"></span></label>
+                  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-9">
+                    <input type="text" name="campaignstate" ng-keyup="campaign.keyPresslogin($event)"  tabindex="3" ng-model="campaign.state" class="form-control" id="Cstate">
+                    <span class="error-message-campaign" ng-if = "!campaign.state.length && campaign.submitted ">State is required.</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3" for="area">Area*<span class="error-message-campaign"></span></label>
+                  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-9">
+                    <input type="text" name="campaignarea" ng-keyup="campaign.keyPresslogin($event)"  tabindex="4" ng-model="campaign.area" class="form-control" id="Carea">
+                    <span class="error-message-campaign" ng-if = "!campaign.area.length && campaign.submitted ">Area is required.</span>
+                  </div>
+                </div>
+                <div class="form-group c-category">
+                  <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3" for="category">Category*<span class="error-message-campaign"></span></label>
+                  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-9">
+                    <input type="text" name="campaigncategory" ng-keyup="campaign.keyPresslogin($event)"  tabindex="5" class="form-control" ng-model="campaign.category" id="Ccategory">
+                    <span class="error-message-campaign" ng-if = "!campaign.category.length && campaign.submitted ">Category is required.</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-3" for="link">Link</label>
+                  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-9">
+                    <input type="text" name="link" ng-keyup="campaign.keyPresslogin($event)" tabindex="6" class="form-control" ng-model="campaign.link" id="Clink">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-sm-offset-3 col-xs-offset-3 text-center">
+                  </div>
+                </div>
+                <div class="row new-post-button">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-sm-offset-3 col-xs-offset-3 text-center">
+                    <button type="submit" tabindex="6"  ng-click="campaign.save();" class="btn btn-sm btn-danger btn-danger-custom">Create</button>
+                  </div>
+                </div>
+              <!--  <div class="row">
+                  <div class="col-sm-6 col-sm-offset-3 text-center">
+                    <button type="button" class="btn btn-danger btn-block">Danger</button>
+                  </div>
+                </div> -->
+              </div>
+              <div class="col-sm-1 col-xs-1"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

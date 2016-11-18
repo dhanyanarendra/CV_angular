@@ -1,0 +1,345 @@
+<div class="container" ng-controller="FeedCtrl as feed">
+  <div class="dashboard-page-margin">
+    <div class="row">
+
+      <div class="col-sm-7">
+        <div class="dashboard-posts" ng-if="feed.candidate_name">
+          <div class="campaign-post-title">
+            <div class="row">
+              <div class="col-lg-10 col-md-10 col-sm-10 col-xs-7">
+                <h3>{{feed.candidate_name}}</h3>
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-5 text-right">
+                <a href="">
+                  <img src="images/icon-colapse-grey.png" ng-click="feed.Displayform();" alt="add campaign icon" ng-if ="feed.form">
+
+                  <img src="images/icon-add-red.png" ng-click="feed.DisplayformExpand();" alt="add campaign icon" ng-if ="!feed.form">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span ng-if="!feed.candidate_name">
+          <h2 align="center" class="campaigErrorMsg">No Campaign found </h2>
+        </span>
+        <div>
+          <div class="new-post" ng-if="feed.form">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-7">
+                <div class="priority">
+                  <a href="">
+                    <i class="fa fa-star-o fa-lg fa-star-custom" ng-click="feed.Priority()" ng-if="!feed.priority_value" aria-hidden="true"></i>
+                    <i class="fa fa-star fa-lg fa-star-custom fa-star-colored" ng-click="feed.Priority()" ng-if="feed.priority_value" aria-hidden="true"></i>
+                  </a>
+                  <h3>New Post</h3>
+                </div>
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-5"></div>
+            </div>
+            <span class="img_er_msg" ng-show="feed.feedValidation" for="inputError">All fields are mandatory.</span>
+
+            <span ng-show="timeValidation">
+              <h2 align="center" class="errormsg">starting time should be before ending time</h2>
+            </span>
+            <form id="dashboard" name="dashboardForm">
+              <div class="row">
+                <div ng-if="cordinatorDetails.length == 0"></div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                  <div class="row type-top">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                      <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 label-margin text-right">
+                          <label>Type</label>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 text-left">
+                          <div class="dropdown">
+                            <button data-toggle="dropdown" type="button" class="btn btn-primary btn-dropdown dropdown-toggle">
+                              <i class="fa fa-chevron-down fa-chevron-down-custom pull-right"></i> <span ng-if="!displayinterest">Select</span>
+                              <span ng-if ="displayinterest" class="i-color" />{{displayinterest}}</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-categories">
+                              <li ng-click="setDisplayInterest(interest)"ng-repeat="interest in feed.interest_name">
+                                <a href="">{{interest.name}}</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                      <div class="row qty-type">
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 label-margin text-right">
+                          <label>Quantity</label>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-8 new text-left">
+                          <input onkeypress="return (event.keyCode == 46 || event.keyCode == 8 ||( event.charCode >= 48 && event.charCode <= 57));" ng-model="feed.quantity" class="form-control i-color" id="qty" maxlength="6" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row campaign-title">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 label-margin text-right">
+                      <label>Title</label>
+                    </div>
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-8">
+                      <input type="text" class="form-control" ng-model="feed.title" id="qty"  maxlength="40" />
+                    </div>
+                  </div>
+                  <div class="new-post-top">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="row">
+                          <div class="col-lg-1 col-md-1 col-sm-1 col-xs-3 text-right">
+                            <a href="">
+                              <img src="images/icon-message.png" alt="Description-icon">
+                            </a>
+                          </div>
+                          <div class="col-lg-11 col-md-11 col-sm-11 col-xs-9">
+                            <textarea class="form-control" rows="5" id="Description" placeholder="Short Description" ng-model="feed.short_description" maxlength="200"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row qty-type">
+                      <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                        <div class="row">
+                          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right">
+                            <a href="">
+                              <img src="images/icon-calender.png" alt="Description-icon">
+                            </a>
+                          </div>
+                          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                            <datepicker date-format = "dd/MM/yyyy">
+                              <input type="text" class="form-control" id="qty" placeholder="Select date" ng-model="feed.date" maxlength="40" />
+                            </datepicker>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                        <div class="row">
+                          <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right">
+                            <a href="">
+                              <img src="images/icon-time.png" alt="Description-icon">
+                            </a>
+                          </div>
+                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-9">
+                           <input ui-timepicker ng-model="feed.start_time" class="form-control" placeholder="Start Time">
+                         </div>
+                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 to text-right">
+                          to
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-9">
+                         <input ui-timepicker ng-model="feed.end_time" class="form-control" placeholder="End Time">
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="row qty-type">
+                  <div class="col-sm-12 col-xs-12">
+                    <div class="row">
+                      <div class="col-sm-1 col-xs-3 text-right">
+                        <a href="">
+                          <img src="images/icon-place.png" alt="Description-icon">
+                        </a>
+                      </div>
+                      <div class="col-sm-11 col-xs-9">
+                        <input type="text" maxlength="40" ng-model="feed.location" placeholder="Location" id="qty" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-1 col-xs-1"></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-sm-offset-3 col-xs-offset-3 text-center">
+            </div>
+          </div>
+          <div class="row new-post-button">
+            <div class="col-sm-6 col-sm-offset-3 text-center">
+              <button type="button" ng-click="feed.feed_save(response,params);" class="btn btn-danger btn-danger-custom">Ask</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+
+      <span ng-show="feed.noFeed">
+        <h2 align="center" class="campaigErrorMsg">You have not created feeds yet! </h2>
+      </span>
+      <div class="scroll" id="scrollArea">
+        <div class="published-post" ng-class="{'highlight': highlightIndex == $index}" ng-repeat="feed in feed.feedArray" ng-if="feed.created_at" id="top_feed">
+         <div ng-click="select(feed, $index);">
+          <div class="row">
+            <div class="col-sm-11" ng-if="feed.created_at">
+              <p>Published @
+                <span>{{feed.created_at | date:'yyyy-MM-dd'}}</span>
+                <span>{{feed.created_at | date:'HH:mm'}}</span>
+                <span ng-if="feed.created_by"> by </span>
+                <a>{{feed.created_by}}
+                </a>
+              </p>
+            </div>
+            <div class="col-sm-1 col-xs-4"></div>
+          </div>
+
+          <!-- #listing  -->
+          <div class="published-post-details">
+            <div class="row">
+              <div class="col-sm-2 col-xs-4 text-left ic-types">
+                <img src="images/ic_canvas.png" ng-if="feed.interest_id=='2' && feed.priority == false " alt="type">
+                <img src="images/ic_canvas_star.png"  alt="type" ng-if="feed.interest_id=='2' && feed.priority == true">
+
+                <img src="images/ic_call.png" ng-if="feed.interest_id=='1' && feed.priority == false " alt="type">
+                <img src="images/ic_cal_star.png" ng-if="feed.interest_id=='1' && feed.priority == true"alt="type">
+
+                <img src="images/ic_data_entry.png" ng-if="feed.interest_id=='3' && feed.priority == false " alt="type">
+                <img src="images/ic_data_entry_star.png" ng-if="feed.interest_id=='3' && feed.priority == true" alt="type">
+
+
+                <img src="images/ic_drivep.png" ng-if="feed.interest_id=='4' && feed.priority == false " alt="type">
+                <img src="images/ic_drivep_star.png" ng-if="feed.interest_id=='4' && feed.priority == true" alt="type">
+
+
+                <img src="images/ic_fundraiser.png" ng-if="feed.interest_id=='5' && feed.priority == false " alt="type">
+                <img src="images/ic_fundraiser_star.png" ng-if="feed.interest_id=='5' && feed.priority == true" alt="type">
+
+
+                <img src="images/ic_letter.png" ng-if="feed.interest_id=='6' && feed.priority == false "alt="type">
+                <img src="images/ic_letter_star.png" alt="type" ng-if="feed.interest_id=='6' && feed.priority == true">
+
+
+                <img src="images/ic_meet.png" ng-if="feed.interest_id=='7' && feed.priority == false " alt="type">
+                <img src="images/ic_meet_star.png" alt="type" ng-if="feed.interest_id=='7' && feed.priority == true">
+
+
+                <img src="images/ic_protest.png" ng-if="feed.interest_id=='8' && feed.priority == false " alt="type">
+                <img src="images/ic_protest_star.png" alt="type" ng-if="feed.interest_id=='8' && feed.priority == true">
+
+
+                <img src="images/ic_rally.png" ng-if="feed.interest_id=='9' && feed.priority == false " alt="type">
+                <img src="images/ic_rally_star.png" alt="type" ng-if="feed.interest_id=='9' && feed.priority == true">
+
+
+                <img src="images/ic_research.png" ng-if="feed.interest_id=='10' && feed.priority == false " alt="type">
+                <img src="images/ic_research_star.png" alt="type" ng-if="feed.interest_id=='10' && feed.priority == true">
+
+
+                <img src="images/ic_signage.png" ng-if="feed.interest_id=='11'&& feed.priority == false " alt="type">
+                <img src="images/ic_signage_star.png" alt="type" ng-if="feed.interest_id=='11' && feed.priority == true">
+
+                <img src="images/ic_social_media.png" ng-if="feed.interest_id=='12' && feed.priority == false " alt="type">
+                <img src="images/ic_social_media_star.png" ng-if="feed.interest_id=='12' && feed.priority == true" alt="type">
+
+
+              </div>
+              <div class="col-sm-8 col-xs-5" ng-if="feed.title">
+                <h4>
+                  {{feed.title}}
+                </h4>
+              </div>
+              <div class="col-sm-2 col-xs-3 likes-count" ng-if="feed.short_description">
+                <img src="images/icon-like.png" alt="type">
+                <span>{{feed.like_count}}</span>
+              </div>
+            </div>
+            <div class="row" ng-if="feed.short_description">
+              <div class="col-sm-1 col-xs-2">
+                <a href="">
+                  <img alt="Description-icon" src="images/icon-message.png">
+                </a>
+              </div>
+              <div class="col-sm-11 col-xs-10">
+                <div>
+                  {{feed.short_description}}
+                </div>
+              </div>
+            </div>
+            <div class="row d-t">
+              <div class="col-sm-1 col-xs-2" ng-if="feed.date">
+                <img alt="Calender-icon" src="images/icon-calender.png">
+              </div>
+              <div class="col-sm-3 col-xs-4" ng-if="feed.date">
+                <span>{{feed.date | date:'yy-MM-dd'}}</span>
+              </div>
+              <div class="col-sm-1 col-xs-2" ng-if="feed.start_time">
+                <img alt="time-icon" src="images/icon-time.png">
+              </div>
+              <div class="col-sm-7 col-xs-4" ng-if="feed.start_time || feed.end_time">
+                <span>{{feed.start_time | date:'h:mma'}} to {{feed.end_time | date:'h:mma'}}</span>
+              </div>
+            </div>
+            <div class="row pledged" ng-if="feed.quantity">
+              <div class="col-sm-1 col-xs-2">
+                <a href="">
+                  <img alt="pledge-icon" src="images/icon-pledge-off.png">
+                </a>
+              </div>
+              <div class="col-sm-5 col-xs-7 text-left" >
+                <span>{{feed.pledge_count}}</span>/
+                <span>{{feed.quantity}}</span>
+              </div>
+              <div class="col-sm-6 col-xs-3"></div>
+            </div>
+            <div class="row loc" ng-if="feed.location">
+              <div class="col-sm-1 col-xs-2">
+                <img alt="Description-icon" src="images/icon-place.png">
+              </div>
+              <div class="col-sm-11 col-xs-10">
+                <span>
+                  {{feed.location}}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-sm-5">
+  <div class="volunteers">
+   <div class="row">
+     <div class="col-sm-9 col-xs-9">
+       <ul class="v-refresh">
+         <li>
+           <a href="">
+            <h3>Volunteers List</h3>
+          </a>
+        </li>
+        <li>
+         <a href="">
+           <img src="images/icon-refresh.png" ng-click="feed.refresh_feed();" class="img-responsive">
+           <!-- <img src="images/icon-refresh-hover.png" class="img-responsive"> -->
+         </a>
+       </li>
+     </ul>
+       <!-- <a href="">
+         <img src="images/icon-refresh.png" class="img-responsive">
+         <img src="images/icon-refresh-hover.png" class="img-responsive">
+       </a> -->
+     </div>
+     <div class="col-sm-3 col-xs-3 text-right">
+       <div class="numberCircle">
+         {{usersCount}}
+       </div>
+     </div>
+   </div>
+   <div class="volunteer-scroll" >
+     <div class="row"  >
+       <div class="col-sm-4 col-xs-4 text-center" ng-repeat="volunteer in feed.volunteerArr track by $index">
+         <a href="">
+           <img src="{{volunteer.userImage}}" class="u-pic img-responsive" alt="Profile Picture" >
+           <p>{{volunteer.firstName}} &nbsp; {{volunteer.lastName}} </p>
+           <p></p>
+         </a>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+</div>
+</div>

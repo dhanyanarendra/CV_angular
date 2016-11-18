@@ -1,0 +1,42 @@
+<div class="container" ng-controller="signinCtrl as signin">
+  <div class="page-margin signin-page">
+    <div id="page-layout">
+      <div class="row">
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-11 col-sm-offset-4 center-column">
+          <div class="panel panel-default panel-custom">
+            <div class="panel-body">
+              <h3>log in</h3>
+
+              <div style="color:#a94442" ng-if="signin.errorMsgFlag" class="error_msg_login" >Incorrect email or password</div>
+              <div style="color:#a94442" ng-if="signin.errorMsgFlagForVolenteer" class="error_msg_login" >You are not an invited coordinator</div>
+
+              <form>
+                <div class="form-group">
+                  <input type="text" class="form-control form-custom" placeholder="Email" ng-change="signin.removeErrormsg();" tabindex="1" ng-model="signin.signinForm.userid" required ng-keyup="signin.keyPresslogin($event)"/>
+
+                  <span class="errormsg" ng-show="!signin.signinForm.userid.length && signin.submitted" class="control-label" for="inputError">Please enter your email</span>
+                </div>
+
+                <div class="form-group">
+                  <input type="{{signin.inputType}}" ng-change="signin.removeErrormsg();"  tabindex="1" ng-model="signin.signinForm.password" name="password"class="form-control form-custom" id="login-password" placeholder="Password" ng-keyup="signin.keyPresslogin($event)" required>
+
+                  <span class="errormsg" ng-show="!signin.signinForm.password.length && signin.submitted" class="error_message_signin">Please enter your password</span>
+
+                  <a href="" class="show-password" ng-click="signin.togglePwd()">Show</a>
+                </div>
+                <button type="button" tabindex="3" class="btn btn-primary btn-primary-custom btn-block" ng-click="signin.login(signinForm);">Log in</button>
+              </form>
+              <p>Trouble
+                <a href="" ng-click="signin.forgotpassword()">Logging In?</a>
+                <br />
+              </p>
+              <p>Interested in joining?
+                <a href="#contactUs">Contact Us</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

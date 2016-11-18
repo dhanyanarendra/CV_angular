@@ -1,0 +1,49 @@
+<nav class="navbar navbar-inverse navbar-static-top navbar-inverse-custom" data-spy="affix" ng-controller = "HeaderCtrl as header">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand myLogo" href="#dashboard_new_post">
+				<img src="images/logo.png" class="img-responsive" alt="Peershape Logo">
+			</a>
+		</div>
+		<div id="navbar3" class="navbar-collapse collapse">
+			<ul class="navbar-custom navbar-dropdown navbar-right">
+				<li><a href="#dashboard_new_post" ng-click="header.dashboard();">Dashboard</a></li>
+        <li>
+          <a href="#my_profile" ng-click = "header.profile();" >My Account</a>
+        </li>
+        <li>
+          <a href="" ng-click = "header.logout();">Sign Out</a>
+        </li>
+
+       <!--  <li>
+         <div class="dropdown a-dropdown">
+          <button class="dropdown-toggle" id="account-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+           <img src="images/dp.png" alt="Profile Picture" class="u-pic img-responsive" />
+           <div class="numberCircle">V</div>
+           <span>Welcome</span>
+           <span>Welcome</span>
+           <span class="caret"></span>
+         </button>
+         <ul class="dropdown-menu dropdown-menu-categories" aria-labelledby="account-dropdown">
+           <li>
+            <a href="#my_profile" ng-click = "header.profile();" >My Account</a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="" ng-click = "header.logout();">Sign Out</a>
+          </li>
+        </ul>
+      </div>
+    </li> -->
+  </ul>
+</div>
+<!--/.nav-collapse -->
+</div>
+<!--/.container-fluid -->
+</nav>

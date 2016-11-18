@@ -1,0 +1,60 @@
+<div class="container" ng-controller="signupCtrl as signup">
+  <div class="page-margin sign-up">
+    <div id="page-layout">
+      <div class="row">
+        <div class="col-lg-5 col-md-5 col-sm-5 col-sm-offset-4 center-column">
+          <div class="panel panel-default panel-custom">
+            <div class="panel-body panel-rpassword panel-signup">
+              <h3>Welcome to PeerShape</h3>
+              <form name="signupForm">
+
+                <div class="form-group">
+
+                  <input type="text" name="email" class="form-control" placeholder="Email" ng-change="signup.removeEmail(); signup.clearEmail();" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"  ng-keyup="signup.keyPresssignup($event)" autocomplete="true" ng-model="signup.signupForm.email" tabindex="1" required/>
+
+                  <span ng-show="signupForm.email.$error.required  && signup.submitted" class="control-label errormsg" for="inputError">Please enter your Email</span>
+
+                  <span class="errormsg" ng-show="signupForm.email.$error.pattern && signup.submitted">Not a valid email address</span>
+
+                  <div style="color:#a94442" ng-if="signup.errorMsgFlagUserName && !signupForm.email.$error.required&& signup.submitted">Email already taken</div>
+                </div>
+
+                <div class="form-group">
+
+                  <input type="password" name="password"  class="form-control" placeholder="Password" class="password_form" tabindex="2" ng-model="signup.signupForm.password" ng-minlength="8" ng-keyup="signup.keyPresssignup($event)" required/>
+                  <span ng-show="signupForm.password.$error.required && signup.submitted" class="control-label errormsg" for="inputError">Please enter your password</span>
+
+                  <span style="color:#a94442" ng-show="signup.submitted && signupForm.password.$error.minlength">Password must have atleast 8 characters</span>
+
+                </div>
+
+                <div class="form-group">
+
+                  <a href="" ng-click="signup.togglePwd()" class="show_signup">Show</a>
+                  <input type="{{signup.inputType}}" ng-keyup="signup.keyPresssignup($event)" tabindex="3" name="confirmpassword" class="form-control" placeholder="Confirm Password" required ng-model="signup.signupForm.confirmpassword"/>
+
+                  <span ng-show="!signupForm.confirmpassword.$valid && signup.submitted" class="error_message_signup errormsg">Please enter Confirm password</span>
+
+                  <span ng-show="signup.confirmpasswordflag && signup.submitted" class="error_message_signup errormsg">Password does not match</span>
+                </div>
+
+                <p>By signing up, you agree to PeerShape's
+
+                  <a class="" href="#terms">Terms and Conditions </a>and
+
+                  <a class="" href="#privacy">Privacy Policy</a>
+                </p>
+                <button type="button" class="btn btn-primary btn-primary-custom btn-block" ng-click="signup.register(signupForm);" tabindex="4">Sign Up</button>
+              </form>
+              <p>Already have an account?
+
+                <a href="" ng-click="signup.signin();">Log In</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

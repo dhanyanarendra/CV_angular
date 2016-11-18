@@ -1,0 +1,262 @@
+<div class="container" ng-controller="profileCtrl as profile">
+  <div class="myProfile">
+    <div class="row">
+      <div class="col-sm-12">
+        <h4>My Account</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="profile-details">
+          <div class="p-pic">
+            <div class="row">
+              <div class="col-sm-4 col-xs-5">
+                <img src="{{image}}" class="profile-pic img-responsive">
+              </div>
+              <div class="col-sm-8 col-xs-7">
+                <a href="">
+                  <button type="button" class="image" ng-click="profile.triggerUpload();">Replace Image</button>
+                </a>
+                <input type="file" ng-file-select id="imageField" />
+              </div>
+            </div>
+          </div>
+          <div class="info">
+            <div class="row">
+              <div class="col-sm-9 col-xs-6">
+                <h4>Basic Info</h4>
+              </div>
+              <div class="col-sm-3 col-xs-6 text-right">
+                <a href="">
+                  <img src="images/iconedit.png" class="" ng-click="profile.edit();">
+                </a>
+              </div>
+            </div>
+            <div class="row">
+              <form role="form" name="profileform">
+                <div class="form-group">
+                  <label for="pfname" class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-12 text-left">First Name</label>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" ng-model="profile.profileform.first_name" required="" id="P-fname" class="form-control form-control-disable" tabindex="1" style="" ng-readonly="inputReadonly" ng-class="{'edit': save}" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="plname" class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-12 text-left">Last Name</label>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" required="" ng-model="profile.profileform.last_name" id="P-lname" class="form-control form-control-disable" tabindex="2" style="" ng-readonly="inputReadonly" ng-class="{'edit': save}" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="ptitle" class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-12 text-left">Title</label>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" required="" ng-model="profile.profileform.title" id="P-title" class="form-control form-control-disable" tabindex="3" style="" ng-readonly="inputReadonly" ng-class="{'edit': save}" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="pemail" class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-12 text-left">Email</label>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                    <input type="email" required="" ng-model="profile.profileform.email" id="P-email" class="form-control form-control-disable" tabindex="4" style="" ng-readonly="inputReadonly" ng-class="{'edit': save}" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="pphone" class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-12 text-left">Phone</label>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                    <input type="text" min="0" required="" ng-model="profile.profileform.phone" ui-mask="999-999-9999" ui-mask-placeholder ui-mask-placeholder-char="space" id="P-phone" class="form-control form-control-disable" tabindex="5" style="" ng-readonly="inputReadonly" ng-class="{'edit': save}" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 col-sm-offset-3 text-center">
+                    <button class="btn btn-danger btn-danger-custom save" tabindex="6" ng-show="save" ng-click="profile.saveprofile(profileform);" type="button">Save</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="info">
+            <div class="row">
+              <div class="col-sm-9 col-xs-9" ng-if="profiledata.id">
+                <h4>Campaign Information</h4>
+              </div>
+              <div class="col-sm-9 col-xs-9" ng-if="!profiledata.id">
+                <h4> No Campaign Information</h4>
+                <button type="submit" ng-click="profile.campaign_link();" class="btn btn-sm btn-danger btn-danger-custom campaign_link" ng-show="userRole">Create campaign</button>
+              </div>
+              <div class="col-sm-3 col-xs-3 text-right" ng-show="userRole">
+                <a href="">
+                  <img src="images/icon-delete.png" class="" ng-click="profile.deleteCamp(profiledata.id);" ng-show="profiledata.id">
+                </a>
+              </div>
+            </div>
+            <div class="row info-display">
+              <form role="form">
+                <div class="form-group">
+                  <label for="pcandidate" ng-if="profiledata.candidate_name" class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-4 text-left">Campaign Name</label>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                    <p>{{profiledata.candidate_name}}</p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="pyear" ng-if="profiledata.year" class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-4 text-left">Year</label>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                    <p>{{profiledata.year}}</p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="pstate" ng-if="profiledata.state" class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-4 text-left">State</label>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                    <p>{{profiledata.state}}</p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="pdistrict" ng-if="profiledata.district" class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-4 text-left">District</label>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                    <p>{{profiledata.district}}</p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="pelection" ng-if="profiledata.election" class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-4 text-left">Election</label>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                    <p>{{profiledata.election}}</p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="plink" ng-if="profiledata.link" class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-4 text-left">Link</label>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                    <p>{{profiledata.link}}</p>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="campaign-coordinator">
+          <div class="invite_coordinator">
+            <div class="row">
+              <div class="col-md-7 col-sm-7 col-xs-6">
+                <h4>Campaign Coordinators</h4>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-6 refresh-image" ng-show="userRole">
+                <ul class="v-refresh">
+                  <li>
+                    <a href="">
+                      <img src="images/icon-refresh.png" ng-click="profile.refresh_profile();">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <img src="images/icon-colapse-grey.png" ng-click="profile.Displayform();" alt="add campaign icon" ng-if="profile.form">
+                      <img src="images/icon-add-red.png" ng-click="profile.Displayform();" alt="add campaign icon" ng-if="!profile.form && profiledata.candidate_name">
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="flashMsg" ng-show="profile.flashmsg">
+            You have Invited successfully!
+          </div>
+          <br />
+          <div class="outer" ng-if="profile.form">
+            <div class="info">
+              <div class="profile_info">
+                <div class="row">
+                  <div class="col-sm-1 col-xs-1"></div>
+                  <div class="col-sm-10 col-xs-10">
+                    <div class="row">
+                      <div class="col-xs-1"></div>
+                      <div class="col-sm-12 col-xs-10">
+                        <span>Invite a Campaign Coordinator</span>
+                      </div>
+                      <div class="col-xs-1"></div>
+                    </div>
+                    <div class="row">
+                      <form name="inviteForm" role="form">
+                        <div class="form-group">
+                          <label for="CFname" class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-12 text-left">First Name</label>
+                          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" ng-model="inviteForm.profile.first_name" tabindex="7" class="form-control" id="CFname" maxlength="40" />
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="CLname" class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-12 text-left">Last Name</label>
+                          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" ng-model="inviteForm.profile.last_name" tabindex="8" class="form-control" id="CLname" maxlength="40" />
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="Cemail" class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-12 text-left">Email *</label>
+                          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                            <input type="email" tabindex="9" ng-model="inviteForm.profile.email" name="inviteEmail" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" tabindex="9" class="form-control" id="Cemail" ng-change="profile.removeErr()" required/>
+
+                            <span ng-show="inviteForm.inviteEmail.$error.required && profile.submitted" class="errorMsgvalidation">Please enter your Email</span>
+
+                            <span class="errorMsgvalidation" ng-show="inviteForm.inviteEmail.$error.email && profile.submitted">Not a valid email address</span>
+                          </div>
+                          <span ng-show="Emailtaken && profile.submitted">
+                            <h2 align="center" class="errorMsgvalidation">You have already sent an invite </h2>
+                          </span>
+                        </div>
+                        <div class="form-group">
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <textarea maxlength="300" tabindex="10" placeholder="Short Description" id="Cdescription" rows="5" ng-model="inviteForm.profile.short_description" class="form-control"></textarea>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-6 col-sm-offset-3 text-center">
+                            <button class="btn btn-danger btn-danger-custom" tabindex="11" ng-click="profile.invite_user(inviteForm);" type="button">Invite</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="col-sm-1 col-xs-1"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div ng-if="cordinatorDetails.length == 0">
+        <p1>Other coordinators have not signed up yet.</p1>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="campaign-coordinator c-c-invite">
+          <div class="invite_coordinator">
+            <div class="row"></div>
+          </div>
+          <div ng-if="cordinatorDetails.length > 0 ">
+            <div class="outer">
+              <div class="info">
+                <div class="invited_name" ng-repeat="user_cordinator in cordinatorDetails">
+                  <div class="c-invite-sug c-invite-sug-select ">
+                    <div class="row">
+                      <div class="col-sm-3 col-xs-3 text-center">
+                        <img src="{{user_cordinator.file.url}}" alt="Profile Picture" class="v-pic small-profile-pic" ng-show="user_cordinator.file.url">
+                        <img src="images/dp.png" alt="Profile Picture" class="v-pic" ng-show="!user_cordinator.file.url">
+                      </div>
+                      <div class="col-sm-6 col-xs-6">
+                        <div ng-if="user_cordinator.first_name || user_cordinator.last_name">
+                          <p>{{user_cordinator.first_name}} {{user_cordinator.last_name}}</p>
+                        </div>
+                        <div ng-if="!user_cordinator.first_name || !user_cordinator.last_name">
+                          <p ng-if="!user_cordinator.first_name && !user_cordinator.last_name">Anonymous</p>
+                        </div>
+                      </div>
+                      <div class="col-sm-3 col-xs-3 text-center" ng-show="userRole">
+                        <a href="">
+                          <img src="images/icon-delete.png" class="" ng-click="profile.deleteinvite(user_cordinator.id);">
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
